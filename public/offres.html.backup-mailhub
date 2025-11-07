@@ -1669,13 +1669,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // --- Envoi du formulaire via Mail Hub Jarvis
+  // --- Envoi du formulaire à Google Sheets
   const form = document.getElementById('wf-form-Contact-Form-3');
   const successMessage = document.querySelector('.f-success-message');
   const errorMessage = document.querySelector('.f-error-message');
 
   if (form) {
-    form.addEventListener('submit', async function(e) {
+    form.addEventListener('submit', function(e) {
       e.preventDefault();
 
       // Récupérer les valeurs du formulaire
@@ -1703,37 +1703,31 @@ document.addEventListener("DOMContentLoaded", function () {
       submitButton.value = 'Envoi en cours...';
       submitButton.disabled = true;
 
-      try {
-        // Envoyer à l'API Mail Hub Jarvis
-        const response = await fetch('/api/contact', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData)
-        });
+      // Envoyer à Google Sheets
+      fetch('https://script.google.com/macros/s/AKfycbzdWiOXnLg7nr_E0oM1C7U2b8hV4obhylKtoFSR67H_VxO-4u21mFUr-nsYhKRS9Y2dTw/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(() => {
+        // Succès
+        form.style.display = 'none';
+        successMessage.style.display = 'block';
+        form.reset();
 
-        const data = await response.json();
-
-        if (response.ok && data.success) {
-          // Succès
-          form.style.display = 'none';
-          successMessage.style.display = 'block';
-          form.reset();
-
-          // Réinitialiser le bouton après un délai
-          setTimeout(() => {
-            submitButton.value = originalText;
-            submitButton.disabled = false;
-            form.style.display = 'block';
-            successMessage.style.display = 'none';
-          }, 5000);
-        } else {
-          // Erreur de validation ou serveur
-          throw new Error(data.error || 'Erreur lors de l\'envoi');
-        }
-      } catch (error) {
-        // Erreur réseau ou autre
+        // Réinitialiser le bouton après un délai
+        setTimeout(() => {
+          submitButton.value = originalText;
+          submitButton.disabled = false;
+          form.style.display = 'block';
+          successMessage.style.display = 'none';
+        }, 5000);
+      })
+      .catch((error) => {
+        // Erreur
         console.error('Erreur:', error);
         errorMessage.style.display = 'block';
         submitButton.value = originalText;
@@ -1742,7 +1736,7 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
           errorMessage.style.display = 'none';
         }, 5000);
-      }
+      });
     });
   }
 });
