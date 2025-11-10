@@ -97,11 +97,18 @@
     // Use setTimeout to ensure DOM is fully loaded
     setTimeout(function() {
       // Find all buttons with nav.signup data-i18n attribute
+      // EXCLUDE pricing/offer buttons (they need to work to scroll to form)
       const signUpButtons = document.querySelectorAll('[data-i18n="nav.signup"]');
       signUpButtons.forEach(button => {
         const parentLink = button.closest('a');
         if (parentLink) {
-          disableButton(parentLink);
+          // Skip if this is a pricing/offer button
+          const isPricingButton = parentLink.classList.contains('mobile_pricing-cta') ||
+                                   parentLink.classList.contains('mobile_pricing-white-cta') ||
+                                   parentLink.classList.contains('offre-cta');
+          if (!isPricingButton) {
+            disableButton(parentLink);
+          }
         }
       });
 
