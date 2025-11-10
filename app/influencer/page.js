@@ -420,7 +420,7 @@ export default function Influencer() {
         }
 
         .gold-gradient {
-          background: linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #D4AF37 100%);
+          background: linear-gradient(135deg, #2465f7 0%, #3b7bff 50%, #2465f7 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -428,7 +428,7 @@ export default function Influencer() {
         }
 
         .gold-text {
-          color: #D4AF37;
+          color: #2465f7;
         }
 
         @keyframes shimmer {
@@ -502,7 +502,7 @@ export default function Influencer() {
           font-size: 11px;
           font-weight: 600;
           letter-spacing: 2px;
-          color: #D4AF37;
+          color: #2465f7;
           margin-bottom: 40px;
           backdrop-filter: blur(20px);
           font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
@@ -548,7 +548,7 @@ export default function Influencer() {
           align-items: center;
           justify-content: center;
           padding: 18px 48px;
-          background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+          background: linear-gradient(135deg, #2465f7 0%, #3b7bff 100%);
           color: #000000;
           border-radius: 6px;
           font-size: 16px;
@@ -565,7 +565,7 @@ export default function Influencer() {
           content: '';
           position: absolute;
           inset: 0;
-          background: linear-gradient(135deg, #FFD700 0%, #D4AF37 100%);
+          background: linear-gradient(135deg, #3b7bff 0%, #2465f7 100%);
           opacity: 0;
           transition: opacity 0.4s;
         }
@@ -691,7 +691,7 @@ export default function Influencer() {
           border: 1px solid rgba(212, 175, 55, 0.3);
           border-radius: 8px;
           font-size: 14px;
-          color: #D4AF37;
+          color: #2465f7;
           backdrop-filter: blur(20px);
           animation: float 6s ease-in-out infinite;
           font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
@@ -723,7 +723,7 @@ export default function Influencer() {
           font-size: 11px;
           font-weight: 600;
           letter-spacing: 3px;
-          color: #D4AF37;
+          color: #2465f7;
           margin-bottom: 24px;
           font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
         }
@@ -731,7 +731,7 @@ export default function Influencer() {
         .label-line {
           width: 40px;
           height: 1px;
-          background: linear-gradient(to right, transparent, #D4AF37, transparent);
+          background: linear-gradient(to right, transparent, #2465f7, transparent);
         }
 
         .section-title {
@@ -845,7 +845,7 @@ export default function Influencer() {
         .privilege-icon-wrapper svg {
           position: relative;
           z-index: 1;
-          color: #D4AF37;
+          color: #2465f7;
         }
 
         .privilege-title {
@@ -867,7 +867,7 @@ export default function Influencer() {
         .privilege-line {
           width: 60px;
           height: 2px;
-          background: linear-gradient(to right, #D4AF37, transparent);
+          background: linear-gradient(to right, #2465f7, transparent);
         }
 
         /* === LUXURY EXPERIENCE === */
@@ -904,7 +904,7 @@ export default function Influencer() {
           background: rgba(212, 175, 55, 0.1);
           border: 1px solid rgba(212, 175, 55, 0.3);
           border-radius: 50%;
-          color: #D4AF37;
+          color: #2465f7;
           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -947,7 +947,7 @@ export default function Influencer() {
         .divider-dot {
           width: 6px;
           height: 6px;
-          background: #D4AF37;
+          background: #2465f7;
           border-radius: 50%;
           margin-left: -3px;
         }
@@ -1073,7 +1073,7 @@ export default function Influencer() {
           right: 24px;
           width: 48px;
           height: 48px;
-          background: linear-gradient(135deg, #FFD700 0%, #F4C430 50%, #D4AF37 100%);
+          background: linear-gradient(135deg, #3b7bff 0%, #2465f7 50%, #2465f7 100%);
           backdrop-filter: blur(10px);
           border-radius: 50%;
           display: flex;
@@ -1130,7 +1130,7 @@ export default function Influencer() {
 
         .elite-handle {
           font-size: 15px;
-          color: #D4AF37;
+          color: #2465f7;
           margin: 0 0 8px 0;
           font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
           font-weight: 500;
@@ -1167,7 +1167,7 @@ export default function Influencer() {
           transform: translateX(-50%);
           width: 60px;
           height: 1px;
-          background: linear-gradient(to right, transparent, #D4AF37, transparent);
+          background: linear-gradient(to right, transparent, #2465f7, transparent);
         }
 
         .elite-stat {
@@ -1207,14 +1207,14 @@ export default function Influencer() {
         }
 
         .elite-stat.highlight .stat-number {
-          background: linear-gradient(135deg, #FFD700 0%, #D4AF37 100%);
+          background: linear-gradient(135deg, #3b7bff 0%, #2465f7 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
 
         .elite-stat.highlight .stat-text {
-          color: #D4AF37;
+          color: #2465f7;
         }
 
         /* === FINAL CTA LUXURY === */
@@ -1264,7 +1264,7 @@ export default function Influencer() {
 
         .cta-ornament {
           font-size: 24px;
-          color: #D4AF37;
+          color: #2465f7;
           animation: rotate-star 6s linear infinite;
         }
 
@@ -1363,11 +1363,11 @@ export default function Influencer() {
         }
 
         :global(.behype_nav-link:hover) {
-          color: #D4AF37 !important;
+          color: #2465f7 !important;
         }
 
         :global(.navbar_button) {
-          background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%) !important;
+          background: linear-gradient(135deg, #2465f7 0%, #3b7bff 100%) !important;
           color: #000000 !important;
           border: none !important;
         }
@@ -1378,13 +1378,13 @@ export default function Influencer() {
 
         :global(.navbar_button-alternate) {
           background: transparent !important;
-          color: #D4AF37 !important;
+          color: #2465f7 !important;
           border: 1px solid rgba(212, 175, 55, 0.4) !important;
         }
 
         :global(.navbar_button-alternate:hover) {
           background: rgba(212, 175, 55, 0.1) !important;
-          border-color: #D4AF37 !important;
+          border-color: #2465f7 !important;
         }
 
         :global(.footer) {
