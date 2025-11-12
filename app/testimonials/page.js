@@ -125,8 +125,8 @@ export default function TestimonialsNew() {
       role: 'Gérant du restaurant COME PAPA',
       logo: '/images/SARBACANE.avif',
       thumbnail: 'https://image-flow.fr/uploads/l-expe-rience-fa4f8820-cb62-425f-800c-243dfcecda3f.webp',
-      videoUrl: 'https://image-flow.fr/uploads/come-papa-testimonial-eecb5a99-c22b-46bd-b494-4c704fc08302.mp4',
-      quote: "Nous on peut noter les influenceurs et les influenceurs peuvent nous noter, ça permet de savoir où on va"
+      videoUrl: 'https://image-flow.fr/uploads/downloadgram-org-aqn7v7dsqcnp-gyzekbi-uniezwtneg5l-006827b3-55a7-4e78-9ba5-a330455a7f5a.mp4',
+      quote: "On fait plus 60% de chiffre d'affaires grâce aux réseaux sociaux, la première action de communication j'ai vu un retour direct"
     },
     {
       id: 4,
@@ -209,6 +209,30 @@ export default function TestimonialsNew() {
     }, 5000)
     return () => clearInterval(interval)
   }, [isAutoPlay])
+
+  // Auto-pause other videos when one starts playing
+  useEffect(() => {
+    const videos = videoTestimonials.map(v => document.getElementById(`video-${v.id}`)).filter(Boolean)
+
+    const handlePlay = (e) => {
+      const playingVideo = e.target
+      videos.forEach(video => {
+        if (video !== playingVideo && !video.paused) {
+          video.pause()
+        }
+      })
+    }
+
+    videos.forEach(video => {
+      video.addEventListener('play', handlePlay)
+    })
+
+    return () => {
+      videos.forEach(video => {
+        video.removeEventListener('play', handlePlay)
+      })
+    }
+  }, [])
 
   const goToSlide = (index) => {
     setCurrentIndex(index)

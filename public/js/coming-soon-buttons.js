@@ -99,7 +99,6 @@
       // Find all buttons with nav.signup data-i18n attribute
       // EXCLUDE pricing/offer buttons (they need to work to scroll to form)
       const signUpButtons = document.querySelectorAll('[data-i18n="nav.signup"]');
-      console.log('🔍 Found', signUpButtons.length, 'buttons with data-i18n="nav.signup"');
       signUpButtons.forEach(button => {
         const parentLink = button.closest('a');
         if (parentLink) {
@@ -107,14 +106,8 @@
           const isPricingButton = parentLink.classList.contains('mobile_pricing-cta') ||
                                    parentLink.classList.contains('mobile_pricing-white-cta') ||
                                    parentLink.classList.contains('offre-cta');
-          console.log('🔘 Button:', button.textContent.trim(),
-                      '| Classes:', parentLink.className,
-                      '| Is pricing?', isPricingButton);
           if (!isPricingButton) {
-            console.log('🚫 Disabling button:', button.textContent.trim());
             disableButton(parentLink);
-          } else {
-            console.log('✅ Skipping pricing button:', button.textContent.trim());
           }
         }
       });

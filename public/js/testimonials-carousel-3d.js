@@ -27,8 +27,8 @@
       role: 'Gérant du restaurant COME PAPA',
       logo: '/images/SARBACANE.avif',
       thumbnail: 'https://image-flow.fr/uploads/l-expe-rience-fa4f8820-cb62-425f-800c-243dfcecda3f.webp',
-      videoUrl: 'https://image-flow.fr/uploads/come-papa-testimonial-eecb5a99-c22b-46bd-b494-4c704fc08302.mp4',
-      quote: "Nous on peut noter les influenceurs et les influenceurs peuvent nous noter, ça permet de savoir où on va"
+      videoUrl: 'https://image-flow.fr/uploads/downloadgram-org-aqn7v7dsqcnp-gyzekbi-uniezwtneg5l-006827b3-55a7-4e78-9ba5-a330455a7f5a.mp4',
+      quote: "On fait plus 60% de chiffre d'affaires grâce aux réseaux sociaux, la première action de communication j'ai vu un retour direct"
     },
     {
       id: 4,
@@ -163,6 +163,25 @@
     `;
 
     updateCarousel();
+    setupVideoPauseHandlers();
+  }
+
+  function setupVideoPauseHandlers() {
+    // Get all video elements
+    const videos = videoTestimonials.map(v => document.getElementById(`video-3d-${v.id}`)).filter(Boolean);
+
+    // Add play event listener to each video
+    videos.forEach(video => {
+      video.addEventListener('play', function(e) {
+        const playingVideo = e.target;
+        // Pause all other videos
+        videos.forEach(v => {
+          if (v !== playingVideo && !v.paused) {
+            v.pause();
+          }
+        });
+      });
+    });
   }
 
   function updateCarousel() {
@@ -218,6 +237,14 @@
     const thumbnail = document.getElementById(`thumb-3d-${videoId}`);
 
     if (videoEl && thumbnail) {
+      // Pause all other videos first
+      const allVideos = videoTestimonials.map(v => document.getElementById(`video-3d-${v.id}`)).filter(Boolean);
+      allVideos.forEach(v => {
+        if (v !== videoEl && !v.paused) {
+          v.pause();
+        }
+      });
+
       videoEl.style.display = 'block';
       videoEl.play();
     }

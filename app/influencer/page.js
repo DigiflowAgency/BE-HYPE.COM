@@ -21,6 +21,29 @@ export default function Influencer() {
     window.addEventListener('scroll', handleScroll, { passive: true })
     window.addEventListener('mousemove', handleMouseMove, { passive: true })
 
+    // Load translation scripts
+    const loadScript = (src) => {
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = src
+        script.onload = resolve
+        script.onerror = reject
+        document.body.appendChild(script)
+      })
+    }
+
+    // Load all necessary scripts for translations and menu
+    const loadScripts = async () => {
+      try {
+        await loadScript('/js/complete-translations.js')
+        await loadScript('/js/language-selector.js')
+      } catch (error) {
+        console.error('Error loading scripts:', error)
+      }
+    }
+
+    loadScripts()
+
     return () => {
       window.removeEventListener('scroll', handleScroll)
       window.removeEventListener('mousemove', handleMouseMove)
@@ -398,6 +421,61 @@ export default function Influencer() {
       </section>
 
       <Footer />
+
+      <style jsx global>{`
+        /* Ensure navbar is visible on all devices */
+        .behype_navbar {
+          position: fixed !important;
+          top: 0 !important;
+          left: 0 !important;
+          right: 0 !important;
+          z-index: 9999 !important;
+          width: 100% !important;
+        }
+
+        /* Ensure navbar menu button is visible on mobile */
+        .f-navigation-menu-button {
+          display: block !important;
+          z-index: 10000 !important;
+        }
+
+        /* Fix footer layout on mobile */
+        @media (max-width: 968px) {
+          .footer-grid {
+            grid-template-columns: 1fr !important;
+            gap: 40px !important;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .footer {
+            padding: 60px 0 30px !important;
+          }
+
+          .footer-grid {
+            grid-template-columns: 1fr !important;
+            gap: 40px !important;
+          }
+
+          .footer-bottom {
+            flex-direction: column !important;
+            gap: 12px !important;
+            text-align: center !important;
+          }
+        }
+
+        @media (max-width: 991px) {
+          .behype_navbar {
+            display: flex !important;
+            visibility: visible !important;
+          }
+
+          .behype_navbar-container {
+            width: 100% !important;
+            display: flex !important;
+          }
+        }
+      `}</style>
 
       <style jsx>{`
         * {

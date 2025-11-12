@@ -9,6 +9,7 @@ export default function HomeNavbar() {
   const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
   const [showTooltip, setShowTooltip] = useState('')
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const isInfluencerPage = pathname === '/influencer'
 
   useEffect(() => {
@@ -26,10 +27,33 @@ export default function HomeNavbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Load Webflow script for navbar functionality
+  useEffect(() => {
+    const script = document.createElement('script')
+    script.src = 'https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js'
+    script.integrity = 'sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0='
+    script.crossOrigin = 'anonymous'
+    document.body.appendChild(script)
+
+    script.onload = () => {
+      const webflowScript = document.createElement('script')
+      webflowScript.src = '/js/behype.js'
+      document.body.appendChild(webflowScript)
+    }
+
+    return () => {
+      if (script.parentNode) script.parentNode.removeChild(script)
+    }
+  }, [])
+
   const handleComingSoon = (e, type) => {
     e.preventDefault()
     setShowTooltip(type)
     setTimeout(() => setShowTooltip(''), 2000)
+  }
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
   }
 
   return (
