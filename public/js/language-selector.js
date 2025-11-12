@@ -223,6 +223,11 @@
     const navCta = document.querySelector('.behype_nav-cta');
     if (!navCta) return;
 
+    // Check if React language selector already exists (avoid duplicates on React pages)
+    if (navCta.querySelector('.language-selector')) {
+      return;
+    }
+
     // Create and insert language selector
     const selector = createLanguageSelector();
 
