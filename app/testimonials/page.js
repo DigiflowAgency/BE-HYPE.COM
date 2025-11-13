@@ -246,6 +246,47 @@ export default function TestimonialsNew() {
     setCurrentIndex((prev) => (prev - 1 + videoTestimonials.length) % videoTestimonials.length)
   }
 
+  // Swipe gesture support for mobile
+  useEffect(() => {
+    let touchStartX = 0
+    let touchEndX = 0
+
+    const handleTouchStart = (e) => {
+      touchStartX = e.changedTouches[0].screenX
+    }
+
+    const handleTouchEnd = (e) => {
+      touchEndX = e.changedTouches[0].screenX
+      handleSwipe()
+    }
+
+    const handleSwipe = () => {
+      const swipeThreshold = 50 // Minimum distance for swipe
+      const diff = touchStartX - touchEndX
+
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          // Swipe left - next slide
+          nextSlide()
+        } else {
+          // Swipe right - previous slide
+          prevSlide()
+        }
+      }
+    }
+
+    const carouselElement = document.querySelector('.carousel-container')
+    if (carouselElement) {
+      carouselElement.addEventListener('touchstart', handleTouchStart, { passive: true })
+      carouselElement.addEventListener('touchend', handleTouchEnd, { passive: true })
+
+      return () => {
+        carouselElement.removeEventListener('touchstart', handleTouchStart)
+        carouselElement.removeEventListener('touchend', handleTouchEnd)
+      }
+    }
+  }, [currentIndex])
+
   return (
     <div className="testimonials-page">
       <HomeNavbar />

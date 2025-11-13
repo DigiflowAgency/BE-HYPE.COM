@@ -463,18 +463,6 @@ export default function Influencer() {
             text-align: center !important;
           }
         }
-
-        @media (max-width: 991px) {
-          .behype_navbar {
-            display: flex !important;
-            visibility: visible !important;
-          }
-
-          .behype_navbar-container {
-            width: 100% !important;
-            display: flex !important;
-          }
-        }
       `}</style>
 
       <style jsx>{`

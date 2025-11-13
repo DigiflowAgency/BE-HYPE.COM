@@ -379,6 +379,12 @@ export default function HomeNavbar() {
           }
         }
 
+        @media (max-width: 899px) {
+          .behype_navbar {
+            display: none !important;
+          }
+        }
+
         .coming-soon-tooltip {
           position: absolute;
           top: calc(100% + 8px);

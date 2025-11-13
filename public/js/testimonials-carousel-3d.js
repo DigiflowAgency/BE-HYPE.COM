@@ -250,10 +250,50 @@
     }
   };
 
+  // Add swipe gesture support
+  function initSwipeGestures() {
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    const handleTouchStart = (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    };
+
+    const handleTouchEnd = (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    };
+
+    const handleSwipe = () => {
+      const swipeThreshold = 50; // Minimum distance for swipe
+      const diff = touchStartX - touchEndX;
+
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          // Swipe left - next slide
+          nextSlide3D();
+        } else {
+          // Swipe right - previous slide
+          prevSlide3D();
+        }
+      }
+    };
+
+    const carouselElement = document.querySelector('.carousel-3d-container');
+    if (carouselElement) {
+      carouselElement.addEventListener('touchstart', handleTouchStart, { passive: true });
+      carouselElement.addEventListener('touchend', handleTouchEnd, { passive: true });
+    }
+  }
+
   // Initialize on DOM ready
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', createCarousel);
+    document.addEventListener('DOMContentLoaded', () => {
+      createCarousel();
+      initSwipeGestures();
+    });
   } else {
     createCarousel();
+    initSwipeGestures();
   }
 })();
