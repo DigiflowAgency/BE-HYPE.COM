@@ -169,7 +169,12 @@
 }
 
 .behype_nav-link.w--current {
-  color: var(--nimbus-library--color--dark);
+  color: #2960f6 !important;
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
 }
 
 .behype_navbar {
@@ -7060,8 +7065,12 @@
   }
 
   .behype_nav-link.w--current {
-    background-color: var(--flowui-component-library--primary-lighter);
-    color: var(--blue-behype);
+    color: #2960f6 !important;
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border: 2px solid #ffffff !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
   }
 
   .hero_section.bg_gradient-behype {
