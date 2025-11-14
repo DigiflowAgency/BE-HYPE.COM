@@ -390,8 +390,8 @@ export default function TestimonialsNew() {
             <div className="stat-label">Créateurs actifs</div>
           </div>
           <div className="stat-card">
-            <div className="stat-number">500+</div>
-            <div className="stat-label">Restaurants partenaires</div>
+            <div className="stat-number">+1000</div>
+            <div className="stat-label">établissements partenaires</div>
           </div>
           <div className="stat-card">
             <div className="stat-number">50K+</div>

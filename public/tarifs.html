@@ -61,13 +61,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <a href="/" target="_parent" class="behype_nav-logo w-inline-block"><img src="images/LOGO-BEHYPE-WHITE_1.webp" loading="lazy" width="124" sizes="(max-width: 479px) 100vw, 124px" alt="The white logo of Behype App
 " srcset="images/LOGO-BEHYPE-WHITE_1.webp 500w, images/LOGO-BEHYPE-WHITE_1.webp 800w, images/LOGO-BEHYPE-WHITE_1.webp 1080w, images/LOGO-BEHYPE-WHITE_1.webp 2835w" class="behype_logo"></a>
       <div class="behype_nav-cta">
-        <a href="/offres" target="_parent" class="navbar_button is-small w-inline-block">
-          <div data-i18n="nav.signup">S'inscrire</div>
-        </a>
-        <a href="/calendly" target="_parent" class="navbar_button-alternate is-small w-inline-block">
-          <div data-i18n="nav.login">Se connecter</div>
-        </a>
-        <link rel="prefetch" href="/calendly">
+        <!-- S'inscrire Button with Tooltip -->
+        <div style="position: relative; display: inline-block;">
+          <a href="#" onclick="showTooltip('signup'); return false;" class="navbar_button is-small w-inline-block" style="cursor: not-allowed; opacity: 0.9;">
+            <div data-i18n="nav.signup">S'inscrire</div>
+          </a>
+          <div id="tooltip-signup" class="coming-soon-tooltip" style="display: none; position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; white-space: nowrap; z-index: 10000; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+            Bientôt disponible
+          </div>
+        </div>
+
+        <!-- Se connecter Button with Tooltip -->
+        <div style="position: relative; display: inline-block;">
+          <a href="#" onclick="showTooltip('login'); return false;" class="navbar_button-alternate is-small w-inline-block" style="cursor: not-allowed; opacity: 0.9;">
+            <div data-i18n="nav.login">Se connecter</div>
+          </a>
+          <div id="tooltip-login" class="coming-soon-tooltip" style="display: none; position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; white-space: nowrap; z-index: 10000; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+            Bientôt disponible
+          </div>
+        </div>
+
         <div class="f-navigation-menu-button w-nav-button">
           <div class="icon w-icon-nav-menu"></div>
         </div>
@@ -336,6 +349,17 @@ menu.addEventListener('touchend', (e) => {
   if(startY && e.changedTouches[0].clientY < startY - 80) closeMenu();
   startY = null;
 });
+
+// Tooltip function for coming soon buttons
+function showTooltip(type) {
+  const tooltip = document.getElementById('tooltip-' + type);
+  if (tooltip) {
+    tooltip.style.display = 'block';
+    setTimeout(() => {
+      tooltip.style.display = 'none';
+    }, 2000);
+  }
+}
 </script>
     </div>
   </div>
@@ -1609,5 +1633,154 @@ window.addEventListener("DOMContentLoaded", function () {
   }, 300);
 });
 </script>
+
+<!-- Floating Demo Button - PC only -->
+<style>
+  @media (min-width: 900px) {
+    .floating-demo-button {
+      position: fixed !important;
+      bottom: 32px !important;
+      right: 32px !important;
+      z-index: 99999 !important;
+      background: linear-gradient(135deg, #2465f7 0%, #1d50d6 100%);
+      color: white;
+      padding: 16px 28px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 8px 24px rgba(36, 101, 247, 0.4);
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+      cursor: pointer;
+    }
+
+    .floating-demo-button:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(36, 101, 247, 0.5);
+      animation: none;
+    }
+
+    .floating-demo-button svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 8px 24px rgba(36, 101, 247, 0.4);
+      }
+      50% {
+        box-shadow: 0 8px 32px rgba(36, 101, 247, 0.7), 0 0 0 8px rgba(36, 101, 247, 0.1);
+      }
+    }
+  }
+
+  @media (max-width: 899px) {
+    .floating-demo-button {
+      display: none !important;
+    }
+  }
+
+  /* Hide burger menu on desktop */
+  @media (min-width: 900px) {
+    .f-navigation-menu-button {
+      display: none !important;
+    }
+  }
+
+  /* Calendly Popup Modal */
+  .calendly-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 999999;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+  }
+
+  .calendly-modal.active {
+    display: flex;
+  }
+
+  .calendly-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    height: 90vh;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  }
+
+  .calendly-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+
+  .calendly-close:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+  }
+</style>
+
+<button onclick="openCalendlyModal()" class="floating-demo-button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+    <polyline points="10 17 15 12 10 7" />
+    <line x1="15" y1="12" x2="3" y2="12" />
+  </svg>
+  Demander une démo
+</button>
+
+<!-- Calendly Popup Modal -->
+<div id="calendly-modal" class="calendly-modal" onclick="closeCalendlyModal()">
+  <div class="calendly-modal-content" onclick="event.stopPropagation()">
+    <button class="calendly-close" onclick="closeCalendlyModal()">×</button>
+    <iframe
+      src="https://calendly.com/jason-digiflow/30min"
+      width="100%"
+      height="100%"
+      frameborder="0"
+      style="border: none;"
+    ></iframe>
+  </div>
+</div>
+
+<script>
+function openCalendlyModal() {
+  document.getElementById('calendly-modal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCalendlyModal() {
+  document.getElementById('calendly-modal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+</script>
+
 </body>
 </html>

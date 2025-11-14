@@ -14,7 +14,7 @@
       'nav.demo': 'Demander une démo',
 
       // Hero Section
-      'hero.partners': '+500 établissements partenaires',
+      'hero.partners': '❤️ +1000 établissements partenaires',
       'hero.title': 'Devenez l\'adresse incontournable grâce au pouvoir de l\'influence',
       'hero.subtitle': 'Recevez des influenceurs, boostez votre visibilité et faites de votre établissement une référence sur les réseaux sociaux.',
       'hero.followers': 'abonnés',
@@ -89,7 +89,7 @@
       'nav.demo': 'Request a demo',
 
       // Hero Section
-      'hero.partners': '+500 partner establishments',
+      'hero.partners': '❤️ +1000 partner establishments',
       'hero.title': 'Become the go-to address through the power of influence',
       'hero.subtitle': 'Welcome influencers, boost your visibility and make your establishment a reference on social networks.',
       'hero.followers': 'followers',
@@ -164,7 +164,7 @@
       'nav.demo': 'Solicitar una demo',
 
       // Hero Section
-      'hero.partners': '+500 establecimientos asociados',
+      'hero.partners': '❤️ +1000 establecimientos asociados',
       'hero.title': 'Conviértete en la dirección imprescindible gracias al poder de la influencia',
       'hero.subtitle': 'Recibe influencers, aumenta tu visibilidad y haz de tu establecimiento una referencia en las redes sociales.',
       'hero.followers': 'seguidores',

@@ -10,7 +10,18 @@ export default function HomeNavbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [showTooltip, setShowTooltip] = useState('')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isCalendlyModalOpen, setIsCalendlyModalOpen] = useState(false)
   const isInfluencerPage = pathname === '/influencer'
+
+  const openCalendlyModal = () => {
+    setIsCalendlyModalOpen(true)
+    document.body.style.overflow = 'hidden'
+  }
+
+  const closeCalendlyModal = () => {
+    setIsCalendlyModalOpen(false)
+    document.body.style.overflow = ''
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -463,6 +474,148 @@ export default function HomeNavbar() {
           background: rgba(212, 175, 55, 0.1) !important;
           border-color: #D4AF37 !important;
         }
+
+        /* Navbar Layout: Links left, Logo center, CTA right */
+        @media (min-width: 900px) {
+          .behype_navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+          }
+
+          .behype_nav {
+            position: absolute;
+            left: 32px;
+          }
+
+          .behype_nav-logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+          }
+
+          .behype_nav-cta {
+            position: absolute;
+            right: 32px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+          }
+        }
+
+        /* Floating Demo Button - PC only */
+        @media (min-width: 900px) {
+          .floating-demo-button {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            z-index: 9999;
+            background: linear-gradient(135deg, #2465f7 0%, #1d50d6 100%);
+            color: white;
+            padding: 16px 28px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 24px rgba(36, 101, 247, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+            cursor: pointer;
+          }
+
+          .floating-demo-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(36, 101, 247, 0.5);
+            animation: none;
+          }
+
+          .floating-demo-button svg {
+            width: 20px;
+            height: 20px;
+          }
+
+          @keyframes pulse {
+            0%, 100% {
+              box-shadow: 0 8px 24px rgba(36, 101, 247, 0.4);
+            }
+            50% {
+              box-shadow: 0 8px 32px rgba(36, 101, 247, 0.7), 0 0 0 8px rgba(36, 101, 247, 0.1);
+            }
+          }
+        }
+
+        /* Hide floating button on mobile */
+        @media (max-width: 899px) {
+          .floating-demo-button {
+            display: none !important;
+          }
+        }
+
+        /* Hide burger menu on desktop */
+        @media (min-width: 900px) {
+          .f-navigation-menu-button {
+            display: none !important;
+          }
+        }
+
+        /* Calendly Popup Modal */
+        .calendly-modal {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.7);
+          z-index: 999999;
+          justify-content: center;
+          align-items: center;
+          backdrop-filter: blur(5px);
+        }
+
+        .calendly-modal.active {
+          display: flex;
+        }
+
+        .calendly-modal-content {
+          position: relative;
+          width: 90%;
+          max-width: 1000px;
+          height: 90vh;
+          background: white;
+          border-radius: 16px;
+          overflow: hidden;
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .calendly-close {
+          position: absolute;
+          top: 16px;
+          right: 16px;
+          width: 40px;
+          height: 40px;
+          background: rgba(0, 0, 0, 0.5);
+          border: none;
+          border-radius: 50%;
+          color: white;
+          font-size: 24px;
+          cursor: pointer;
+          z-index: 10;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.2s;
+        }
+
+        .calendly-close:hover {
+          background: rgba(0, 0, 0, 0.8);
+          transform: scale(1.1);
+        }
       `}</style>
 
       <div
@@ -479,7 +632,6 @@ export default function HomeNavbar() {
               <Link href="/offres" className={`behype_nav-link w-nav-link ${pathname === '/offres' ? 'active-page' : ''}`}>Tarifs</Link>
               <Link href="/testimonials" className={`behype_nav-link w-nav-link ${pathname === '/testimonials' ? 'active-page' : ''}`}>Témoignages</Link>
               <Link href="/influencer" className={`behype_nav-link w-nav-link ${pathname === '/influencer' ? 'active-page' : ''}`}>Je suis influenceur</Link>
-              <Link href="/calendly" className={`behype_nav-link w-nav-link ${pathname === '/calendly' ? 'active-page' : ''}`}>Démo</Link>
             </div>
           </nav>
           <Link href="/" aria-current="page" className="behype_nav-logo w-inline-block w--current">
@@ -590,6 +742,34 @@ export default function HomeNavbar() {
           <Link href="/calendly" className="bh-navbar-mobile__btn demo">Démo</Link>
         </div>
       </nav>
+
+      {/* Floating Demo Button - PC Only */}
+      <button onClick={openCalendlyModal} className="floating-demo-button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+          <polyline points="10 17 15 12 10 7" />
+          <line x1="15" y1="12" x2="3" y2="12" />
+        </svg>
+        Demander une démo
+      </button>
+
+      {/* Calendly Popup Modal */}
+      {isCalendlyModalOpen && (
+        <div className={`calendly-modal ${isCalendlyModalOpen ? 'active' : ''}`} onClick={closeCalendlyModal}>
+          <div className="calendly-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="calendly-close" onClick={closeCalendlyModal}>
+              ×
+            </button>
+            <iframe
+              src="https://calendly.com/jason-digiflow/30min"
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              style={{ border: 'none' }}
+            />
+          </div>
+        </div>
+      )}
     </>
   )
 }
