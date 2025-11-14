@@ -64,6 +64,22 @@
   transition: all 0.2s ease;
 }
 
+/* Active link style - blue text with white border */
+.behype_nav-link.w--current {
+  color: #2960f6 !important;
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+  font-weight: 600 !important;
+}
+
+.behype_navbar.scrolled .behype_nav-link.w--current {
+  color: #2960f6 !important;
+  background-color: rgba(255, 255, 255, 0.98) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
 .behype_navbar.scrolled .behype_nav-link {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
