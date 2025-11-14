@@ -761,7 +761,7 @@ export default function HomeNavbar() {
               ×
             </button>
             <iframe
-              src="https://calendly.com/jason-digiflow/30min"
+              src="https://calendly.com/contact-behype/15min"
               width="100%"
               height="100%"
               frameBorder="0"

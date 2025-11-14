@@ -433,10 +433,18 @@ export default function Influencer() {
           width: 100% !important;
         }
 
-        /* Ensure navbar menu button is visible on mobile */
-        .f-navigation-menu-button {
-          display: block !important;
-          z-index: 10000 !important;
+        /* Hide burger menu on desktop, show on mobile */
+        @media (min-width: 900px) {
+          .f-navigation-menu-button {
+            display: none !important;
+          }
+        }
+
+        @media (max-width: 899px) {
+          .f-navigation-menu-button {
+            display: block !important;
+            z-index: 10000 !important;
+          }
         }
 
         /* Fix footer layout on mobile */
