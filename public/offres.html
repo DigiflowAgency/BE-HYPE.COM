@@ -65,6 +65,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <a href="/testimonials" target="_parent" class="behype_nav-link w-nav-link" data-i18n="nav.testimonials">Témoignages</a>
             <a href="/influencer" target="_parent" class="behype_nav-link w-nav-link" data-i18n="nav.influencer">Je suis influenceur</a>
             <link rel="prefetch" href="/influencer">
+            <a href="/calendly" target="_parent" class="behype_nav-link w-nav-link" data-i18n="nav.demo">Démo</a>
+            <link rel="prefetch" href="/calendly">
           </div>
         </nav>
         <a href="/" target="_parent" class="behype_nav-logo w-inline-block"><img src="images/LOGO-BEHYPE-WHITE_1.webp" loading="lazy" width="124" sizes="(max-width: 479px) 100vw, 124px" alt="The white logo of Behype App
@@ -298,7 +300,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </div>
           <div class="bh-navbar-mobile__btns">
             <a href="/offres" target="_parent" class="bh-navbar-mobile__btn subscribe" data-i18n="nav.signup">S'inscrire</a>
-            <a href="/calendly" target="_parent" class="bh-navbar-mobile__btn demo" data-i18n="nav.login">Se connecter</a>
+            <a href="/calendly" target="_parent" class="bh-navbar-mobile__btn demo" data-i18n="nav.demo">Démo</a>
           </div>
         </nav>
         <script>
@@ -967,6 +969,14 @@ menu.addEventListener('touchend', (e) => {
                 <div class="uui-text-size-large-2">Parce que BeHype transforme rapidement votre visibilité locale grâce à des influenceurs authentiques, tout en optimisant votre budget marketing</div>
                 <div class="uui-space-large"></div>
                 <div class="uui-text-size-medium-3"> +<span class="text-span-2">500</span> établissements partenaires à travers la France</div>
+
+                <!-- Testimonials Carousel -->
+                <div style="margin: 60px 0;">
+                  <div id="testimonials-carousel-offres"></div>
+                  <script src="js/testimonials-carousel-offres.js"></script>
+                  <link rel="stylesheet" href="css/testimonials-carousel-3d.css">
+                </div>
+
                 <div class="w-layout-grid partners_grid-2"><img src="images/IVERI-1.avif" loading="lazy" alt="" class="pricing_partners-logo"><img src="images/SARBACANE.avif" loading="lazy" alt="" class="pricing_partners-logo"><img src="images/BAITO.avif" loading="lazy" alt="" class="pricing_partners-logo"><img src="images/EASY-SUSHIS.avif" loading="lazy" alt="" class="pricing_partners-logo"><img src="images/TIGERMILK.avif" loading="lazy" alt="" class="pricing_partners-logo"><img src="images/IFLY.avif" loading="lazy" alt="" class="pricing_partners-logo"><img src="images/11.avif" loading="lazy" alt="" class="pricing_partners-logo"><img src="images/LITALIEN.avif" loading="lazy" alt="" class="pricing_partners-logo"><img src="images/PIZZA-COSY.avif" loading="lazy" alt="" class="pricing_partners-logo"><img src="images/BAGELSTEIN.avif" loading="lazy" alt="" class="pricing_partners-logo"><img src="images/284x140.avif" loading="lazy" alt="" class="pricing_partners-logo"><img src="images/20.png" loading="lazy" alt="" class="pricing_partners-logo"><img src="images/LA-BELLE-LIEGOISE.avif" loading="lazy" alt="" class="pricing_partners-logo"><img src="images/21.png" loading="lazy" alt="" class="pricing_partners-logo"><img src="images/WARUNG.avif" loading="lazy" alt="" class="pricing_partners-logo"></div>
                 <div class="uui-space-large"></div>
                 <div class="uui-button-row-3 is-reverse-mobile-landscape">
@@ -1392,24 +1402,6 @@ document.addEventListener("DOMContentLoaded", function() {
       </div>
     </div>
   </section>
-
-  <!-- Testimonials Section -->
-  <section style="padding: 80px 20px; background: linear-gradient(180deg, #f8faff 0%, #ffffff 100%);">
-    <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
-      <h2 style="font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700; color: #1a1a1a;">
-        Ils nous font confiance
-      </h2>
-      <p style="font-size: 1.1rem; color: #666; margin-bottom: 60px;">
-        Découvrez les témoignages de nos clients satisfaits
-      </p>
-
-      <div id="testimonials-carousel-offres"></div>
-
-      <script src="js/testimonials-carousel-offres.js"></script>
-      <link rel="stylesheet" href="css/testimonials-carousel-3d.css">
-    </div>
-  </section>
-
   <div id="formulaire-contact" class="form_wrapper">
     <div class="f-container-regular-2">
       <div class="w-layout-grid f-contact-grid">
@@ -1570,9 +1562,9 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
     </div>
 
-    <div class="footer-bottom" style="padding-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.1); display: flex; justify-content: space-between; align-items: center;">
-      <p style="color: #64748b; font-size: 14px; margin: 0;">&copy; 2024 BEHYPE. Tous droits réservés.</p>
-      <p style="color: #64748b; font-size: 14px; margin: 0;">Made by <a href="https://digiflow-agency.fr" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">Digiflow Agency</a></p>
+    <div class="footer-bottom" style="padding-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.1); display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center;">
+      <p style="color: #64748b; font-size: 14px; margin: 0;">&copy; 2025 BE HYPE Tous droits réservés</p>
+      <p style="color: #64748b; font-size: 14px; margin: 0;">Site web réalisé par <a href="https://digiflow-agency.fr" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none; font-weight: 600;">DIGIFLOW AGENCY</a> (digiflow-agency.fr)</p>
     </div>
   </div>
 

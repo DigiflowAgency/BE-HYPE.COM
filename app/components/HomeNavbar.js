@@ -428,6 +428,21 @@ export default function HomeNavbar() {
           color: #D4AF37 !important;
         }
 
+        /* Active page indicator - PC only */
+        @media (min-width: 900px) {
+          .behype_nav-link.active-page {
+            color: #3b82f6 !important;
+            background: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+          }
+
+          .behype_navbar.black-navbar .behype_nav-link.active-page {
+            color: #3b82f6 !important;
+            background: white;
+          }
+        }
+
         .behype_navbar.black-navbar .navbar_button {
           background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%) !important;
           color: #000000 !important;
@@ -461,10 +476,10 @@ export default function HomeNavbar() {
         <div className="behype_navbar-container">
           <nav role="navigation" className="behype_nav w-nav-menu">
             <div className="links_container">
-              <Link href="/offres" className="behype_nav-link w-nav-link">Tarifs</Link>
-              <Link href="/testimonials" className="behype_nav-link w-nav-link">Témoignages</Link>
-              <Link href="/influencer" className="behype_nav-link w-nav-link">Je suis influenceur</Link>
-              <Link href="/calendly" className="behype_nav-link w-nav-link">Démo</Link>
+              <Link href="/offres" className={`behype_nav-link w-nav-link ${pathname === '/offres' ? 'active-page' : ''}`}>Tarifs</Link>
+              <Link href="/testimonials" className={`behype_nav-link w-nav-link ${pathname === '/testimonials' ? 'active-page' : ''}`}>Témoignages</Link>
+              <Link href="/influencer" className={`behype_nav-link w-nav-link ${pathname === '/influencer' ? 'active-page' : ''}`}>Je suis influenceur</Link>
+              <Link href="/calendly" className={`behype_nav-link w-nav-link ${pathname === '/calendly' ? 'active-page' : ''}`}>Démo</Link>
             </div>
           </nav>
           <Link href="/" aria-current="page" className="behype_nav-logo w-inline-block w--current">

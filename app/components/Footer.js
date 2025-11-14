@@ -37,23 +37,25 @@ export default function Footer() {
 
             <div className="footer-links">
               <h4 style={{ fontSize: '14px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '20px', color: 'white' }}>Entreprise</h4>
-              <Link href="/about" style={{ display: 'block', color: '#94a3b8', textDecoration: 'none', marginBottom: '12px', fontSize: '15px', transition: 'color 0.2s' }}>À propos</Link>
-              <Link href="/contact" style={{ display: 'block', color: '#94a3b8', textDecoration: 'none', marginBottom: '12px', fontSize: '15px', transition: 'color 0.2s' }}>Contact</Link>
-              <Link href="/careers" style={{ display: 'block', color: '#94a3b8', textDecoration: 'none', marginBottom: '12px', fontSize: '15px', transition: 'color 0.2s' }}>Carrières</Link>
-              <Link href="/blog" style={{ display: 'block', color: '#94a3b8', textDecoration: 'none', marginBottom: '12px', fontSize: '15px', transition: 'color 0.2s' }}>Blog</Link>
+              <Link href="/about" prefetch={false} style={{ display: 'block', color: '#94a3b8', textDecoration: 'none', marginBottom: '12px', fontSize: '15px', transition: 'color 0.2s' }}>À propos</Link>
+              <Link href="/contact" prefetch={false} style={{ display: 'block', color: '#94a3b8', textDecoration: 'none', marginBottom: '12px', fontSize: '15px', transition: 'color 0.2s' }}>Contact</Link>
+              <Link href="/careers" prefetch={false} style={{ display: 'block', color: '#94a3b8', textDecoration: 'none', marginBottom: '12px', fontSize: '15px', transition: 'color 0.2s' }}>Carrières</Link>
+              <Link href="/blog" prefetch={false} style={{ display: 'block', color: '#94a3b8', textDecoration: 'none', marginBottom: '12px', fontSize: '15px', transition: 'color 0.2s' }}>Blog</Link>
             </div>
 
             <div className="footer-links">
               <h4 style={{ fontSize: '14px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '20px', color: 'white' }}>Légal</h4>
-              <Link href="/privacy" style={{ display: 'block', color: '#94a3b8', textDecoration: 'none', marginBottom: '12px', fontSize: '15px', transition: 'color 0.2s' }}>Confidentialité</Link>
-              <Link href="/terms" style={{ display: 'block', color: '#94a3b8', textDecoration: 'none', marginBottom: '12px', fontSize: '15px', transition: 'color 0.2s' }}>Conditions</Link>
-              <Link href="/cookies" style={{ display: 'block', color: '#94a3b8', textDecoration: 'none', marginBottom: '12px', fontSize: '15px', transition: 'color 0.2s' }}>Cookies</Link>
+              <Link href="/privacy" prefetch={false} style={{ display: 'block', color: '#94a3b8', textDecoration: 'none', marginBottom: '12px', fontSize: '15px', transition: 'color 0.2s' }}>Confidentialité</Link>
+              <Link href="/terms" prefetch={false} style={{ display: 'block', color: '#94a3b8', textDecoration: 'none', marginBottom: '12px', fontSize: '15px', transition: 'color 0.2s' }}>Conditions</Link>
+              <Link href="/cookies" prefetch={false} style={{ display: 'block', color: '#94a3b8', textDecoration: 'none', marginBottom: '12px', fontSize: '15px', transition: 'color 0.2s' }}>Cookies</Link>
             </div>
           </div>
 
-          <div className="footer-bottom" style={{ paddingTop: '40px', borderTop: '1px solid rgba(255, 255, 255, 0.1)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <p style={{ color: '#64748b', fontSize: '14px', margin: 0 }}>&copy; 2024 BEHYPE. Tous droits réservés.</p>
-            <p style={{ color: '#64748b', fontSize: '14px', margin: 0 }}>Made by <a href="https://digiflow-agency.fr" target="_blank" rel="noopener noreferrer" style={{ color: '#3b82f6', textDecoration: 'none' }}>Digiflow Agency</a></p>
+          <div className="footer-bottom" style={{ paddingTop: '40px', borderTop: '1px solid rgba(255, 255, 255, 0.1)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', textAlign: 'center' }}>
+            <p style={{ color: '#64748b', fontSize: '14px', margin: 0 }}>&copy; 2025 BE HYPE Tous droits réservés</p>
+            <p style={{ color: '#64748b', fontSize: '14px', margin: 0 }}>
+              Site web réalisé par <a href="https://digiflow-agency.fr" target="_blank" rel="noopener noreferrer" style={{ color: '#3b82f6', textDecoration: 'none', fontWeight: 600 }}>DIGIFLOW AGENCY</a> (digiflow-agency.fr)
+            </p>
           </div>
         </div>
       </footer>
@@ -143,14 +145,26 @@ export default function Footer() {
           padding-top: 40px;
           border-top: 1px solid rgba(255, 255, 255, 0.1);
           display: flex;
-          justify-content: space-between;
+          flex-direction: column;
           align-items: center;
+          gap: 8px;
+          text-align: center;
         }
 
         .footer-bottom p {
           color: #64748b;
           font-size: 14px;
           margin: 0;
+        }
+
+        .footer-bottom a {
+          color: #3b82f6;
+          text-decoration: none;
+          font-weight: 600;
+        }
+
+        .footer-bottom a:hover {
+          text-decoration: underline;
         }
 
         @media (max-width: 968px) {
